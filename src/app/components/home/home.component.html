@@ -1,1 +1,4 @@
-<app-menu></app-menu>
+<app-menu 
+  [isMenuCollapsed]="isCollapsed" 
+  (changeIsMenuCollapsed)="onCollapseChange($event)">
+</app-menu>

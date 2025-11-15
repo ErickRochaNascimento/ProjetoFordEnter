@@ -7,6 +7,13 @@ import { MenuComponent } from "../menu/menu.component";
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+// ...
 export class HomeComponent {
+  isCollapsed: boolean = false; // Propriedade para controlar o estado do menu
 
+  // Método para receber o evento de mudança de estado do menu
+  onCollapseChange(collapsed: boolean): void {
+    this.isCollapsed = collapsed;
+  }
 }
+
