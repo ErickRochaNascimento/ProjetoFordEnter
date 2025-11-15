@@ -122,3 +122,25 @@ button[type="submit"]:hover {
 .auth-conteiner p button:hover {
     text-decoration: underline;
 }
+
+/* ----------- Estilos para "Logar automaticamente" ----------- */
+.remember-me-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.remember-me-container label {
+    margin-bottom: 0; /* Remove a margem inferior padrão do label */
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.remember-me-container input[type="checkbox"] {
+    width: auto; /* Permite que o checkbox tenha seu tamanho padrão */
+    margin-left: 10px;
+    cursor: pointer;
+}

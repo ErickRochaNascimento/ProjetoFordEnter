@@ -33,7 +33,8 @@ export class AuthComponent implements OnInit{
     this.form = this.fb.group({
       name:[''],
       email:['', [Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(6)]]
+      password:['', [Validators.required, Validators.minLength(6)]],
+      rememberMe:[false] // Adiciona o controle para "Lembrar-me"
     })
   }
   toggleMode(): void{
@@ -62,7 +63,9 @@ export class AuthComponent implements OnInit{
       const usuario = usuarios.find(u => u.email === email && u.password === password);
       if(usuario){
         console.log('login bem sucedido', usuario);
-        localStorage.setItem('UsuarioLogado', JSON.stringify(usuario));
+        const { rememberMe } = this.form.value;
+        const storage = rememberMe ? localStorage : sessionStorage; // Escolhe o armazenamento
+        storage.setItem('UsuarioLogado', JSON.stringify(usuario));
         this.router.navigate(['/home']);
       }else{
         alert('Email ou senha invalidos!');
@@ -84,5 +87,3 @@ export class AuthComponent implements OnInit{
     }
   }
 }
-
-

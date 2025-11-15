@@ -19,6 +19,11 @@
             <input id="password" type="password" formControlName="password"
                 [placeholder]="isLoginMode ? 'Insira sua senha' : 'Informe pelo menos 6 digitos'">
 
+            <div class="remember-me-container" *ngIf="isLoginMode">
+                <label for="rememberMe">Logar automaticamente</label>
+                <input id="rememberMe" type="checkbox" formControlName="rememberMe">
+            </div>
+
 
 
             <button type="submit">{{isLoginMode ? 'Entrar' : 'Cadastrar'}}</button>
