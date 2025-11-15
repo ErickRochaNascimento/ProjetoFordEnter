@@ -1,4 +1,23 @@
-<app-menu 
-  [isMenuCollapsed]="isCollapsed" 
-  (changeIsMenuCollapsed)="onCollapseChange($event)">
-</app-menu>
+<div class="home-container">
+  <!-- Botão de Hambúrguer Fixo - Visível quando o menu está fechado -->
+  <button class="menu-toggle-button" [class.hidden]="!isCollapsed" (click)="onCollapseChange(false)">
+    <i class="fal fa-bars"></i>
+  </button>
+  
+  <!-- Componente do Menu -->
+  <app-menu 
+    [isMenuCollapsed]="isCollapsed" 
+    (changeIsMenuCollapsed)="onCollapseChange($event)">
+  </app-menu>
+  
+  <!-- Overlay - Visível quando o menu está aberto -->
+  <div class="overlay" [class.active]="!isCollapsed" (click)="onCollapseChange(true)"></div>
+  
+  <!-- Conteúdo Principal -->
+  <div class="main-content">
+    <!-- Conteúdo principal da página Home aqui -->
+    <h1>Sistema de dados FORD</h1>
+    <p>Seja bem vindo(a)!</p>
+    <!-- O conteúdo da imagem de fundo e o card de boas-vindas devem vir aqui -->
+  </div>
+</div>
