@@ -1,30 +1,21 @@
-<div
-  class="sidenav"
-  [ngClass]="isMenuCollapsed() ? 'sidenav-collapsed' : ''"
->
-  @if (!isMenuCollapsed()) {
-    <div class="logo-container">
-      <div class="logo-text">FORD</div>
-      <button class="btn-close" (click)="closeSidenav()">
-        <i class="fal fa-times close-icon"></i>
-      </button>
-    </div>
-  }
-  @if (!isMenuCollapsed()) {
-    <div class="sidenav-nav">
-      @for (item of items; track $index) {
-        <li class="sidenav-nav-item">
-          <a
-            class="sidenav-nav-link"
-            [routerLink]="item.routeLink"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <i class="sidenav-link-icon" [class]="item.icon"></i>
-            <span class="sidenav-link-text">{{ item.label }}</span>
-          </a>
-        </li>
-      }
-    </div>
-  }
+<div id="menu" [ngClass]="isCollapsed() ? 'menu-collapsed' : ''">
+
+  <!-- LOGO -->
+  <div id="menu-logo" *ngIf="!isCollapsed()">
+    <img src="logoFord.png" alt="Ford Logo" id="menu-logo-img">
+    <button id="menu-close-btn" (click)="closeMenu()">
+      ✖
+    </button>
+  </div>
+
+  <!-- LISTA DO MENU -->
+  <ul id="menu-nav" *ngIf="!isCollapsed()">
+    <li class="menu-item" *ngFor="let item of menuItems">
+      <a class="menu-link" [routerLink]="item.routeLink" routerLinkActive="menu-active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <span class="menu-text">{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+
 </div>

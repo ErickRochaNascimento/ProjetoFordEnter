@@ -46,3 +46,15 @@
 .menu-toggle-button.hidden {
   display: none;
 }
+
+#menu-open-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#menu-open-btn img {
+  width: 28px;
+  height: auto;
+}

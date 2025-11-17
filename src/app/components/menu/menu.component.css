@@ -1,98 +1,68 @@
-.sidenav {
-  background: #fff; /* Fundo branco para o menu aberto */
-  transition: transform 0.3s ease-in-out;
-  position: fixed;
-  z-index: 100; /* Z-index alto para ficar acima de tudo */
-  top: 0;
-  left: 0;
-  width: 16.5625rem; /* Largura do menu aberto */
-  height: 100vh;
-  box-shadow: 0.125rem 0 0.625rem rgba(0, 0, 0, 0.1);
-  transform: translateX(-100%); /* Esconde o menu por padrão */
+/* ======= CONTAINER ======= */
+#menu {
+  width: 250px;
+  background: #ffffff;           
+  min-height: 100vh;
+  padding-top: 10px;
+  transition: width .3s ease;
 }
 
-.sidenav.sidenav-collapsed {
-  transform: translateX(-100%); /* Esconde o menu quando a classe 'sidenav-collapsed' está presente */
+#menu.menu-collapsed {
+  width: 70px;
 }
 
-.sidenav:not(.sidenav-collapsed) {
-  transform: translateX(0); /* Mostra o menu quando a classe 'sidenav-collapsed' não está presente */
-}
-
-/* Estilos para o conteúdo do menu (logo, links, etc.) */
-.sidenav .logo-container {
-  background-color: #f3f3f3; /* Cor de fundo do cabeçalho do menu */
-  padding: 0.938rem;
+/* ======= LOGO ======= */
+#menu-logo {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
+  padding: 10px 0;
 }
 
-.sidenav .logo-container .logo-text {
-  margin-left: 0.5rem;
-  font-size: 24px;
-  font-weight: 700;
-  color: #000; /* Cor do texto do logo */
+#menu-logo-img {
+  width: 90px;
+  display: block;
 }
 
-.sidenav .logo-container .btn-close {
-  /* Botão de fechar (X) */
-  margin-left: auto;
-  cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: transparent;
+#menu-close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
   border: none;
-}
-.sidenav .logo-container .btn-close .fa-times {
-  color: #000; /* Cor do ícone de fechar */
-  font-size: 24px;
-}
-
-.sidenav-nav {
-  list-style: none;
-  padding: 0.938rem;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Alinha os itens à esquerda */
-  height: calc(100% - 3.65rem);
+  font-size: 18px;
   cursor: pointer;
+  color: #444;
 }
 
-.sidenav-nav .sidenav-nav-item {
-  width: 100%;
-  margin-bottom: 0.625rem;
+/* ======= LISTA ======= */
+#menu-nav {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link {
-  display: flex;
-  align-items: center;
-  height: 3rem;
-  color: #000; /* Cor do link */
+
+.menu-item {
+  margin-bottom: 10px;
+}
+
+.menu-link {
+  display: block;
+  padding: 14px 20px;
   text-decoration: none;
-  border-radius: 0.625rem;
-  transition: all 0.3s ease;
-}
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-icon {
-  font-size: 22px;
-  width: 2rem;
-  min-width: 2rem;
-  text-align: center;
-  padding: 12px;
-}
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
-  margin-left: 0.5rem;
-}
-.sidenav-nav .sidenav-nav-item:hover .sidenav-nav-link {
-  background-color: #f3f3f3;
-  color: #000;
+  background: #dcdcdc;
+  color: green;               /* texto verde igual na imagem */
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background .2s;
 }
 
-.active {
-  background-color: #e0e0e0; /* Cor de fundo para o link ativo */
+.menu-link:hover {
+  background: #cfcfcf;
 }
-.active .sidenav-link-icon,
-.active .sidenav-link-text {
-  color: #000;
+
+.menu-active {
+  background: #c4c4c4 !important;
+  border-left: 4px solid green;
 }
