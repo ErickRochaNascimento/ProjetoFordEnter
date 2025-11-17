@@ -4,11 +4,12 @@ import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validat
 import { Router } from '@angular/router';
 
 
-interface Usuario{
+interface Usuario {
   name: string;
   email: string;
   password: string;
 }
+
 
 @Component({
   selector: 'app-auth',
@@ -16,69 +17,84 @@ interface Usuario{
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent implements OnInit{
+export class AuthComponent implements OnInit {
   form!: FormGroup;
   isLoginMode = true;
 
   constructor(
     private fb: FormBuilder,
     private router: Router
-  ){}
+  ) { }
 
   ngOnInit(): void {
     this.setupForm();
+    this.criarUsuarioPadrao();
   }
 
-  setupForm():void{
+  criarUsuarioPadrao(): void {
+    const usuarios = this.getUsuarios();
+    const existe = usuarios.some(u => u.email === "admin@email.com");
+
+    if (!existe) {
+      usuarios.push({
+        name: "Admin",
+        email: "admin@email.com",
+        password: "123456"
+      });
+      this.salvarUsuarios(usuarios);
+    }
+  }
+
+  setupForm(): void {
     this.form = this.fb.group({
-      name:[''],
-      email:['', [Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(6)]],
-      rememberMe:[false] // Adiciona o controle para "Lembrar-me"
+      name: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      rememberMe: [false] // Adiciona o controle para "Lembrar-me"
     })
   }
-  toggleMode(): void{
+  toggleMode(): void {
     this.isLoginMode = !this.isLoginMode;
 
   }
-  getUsuarios(): Usuario[]{
-    const dados= localStorage.getItem('usuarios');
-    return dados? JSON.parse(dados) : [];
+  getUsuarios(): Usuario[] {
+    const dados = localStorage.getItem('usuarios');
+    return dados ? JSON.parse(dados) : [];
   }
 
-  salvarUsuarios(lista: Usuario[]):void{
+  salvarUsuarios(lista: Usuario[]): void {
     localStorage.setItem('usuarios', JSON.stringify(lista))
 
   }
 
   onSubmit(): void {
     console.log('Form submit enviado')
-    if(this.form.invalid)return;
+    if (this.form.invalid) return;
     console.log('Form invalido', this.form.errors)
 
-    const {name, email, password} = this.form.value;
+    const { name, email, password } = this.form.value;
     const usuarios = this.getUsuarios();
 
-    if(this.isLoginMode){
+    if (this.isLoginMode) {
       const usuario = usuarios.find(u => u.email === email && u.password === password);
-      if(usuario){
+      if (usuario) {
         console.log('login bem sucedido', usuario);
         const { rememberMe } = this.form.value;
         const storage = rememberMe ? localStorage : sessionStorage; // Escolhe o armazenamento
         storage.setItem('UsuarioLogado', JSON.stringify(usuario));
         this.router.navigate(['/home']);
-      }else{
+      } else {
         alert('Email ou senha invalidos!');
       }
-    }else{
-      const usuarioJaExiste = usuarios.some(u => u.email===email)
+    } else {
+      const usuarioJaExiste = usuarios.some(u => u.email === email)
 
-      if(usuarioJaExiste){
+      if (usuarioJaExiste) {
         alert('Este email ja esta cadastrado!');
         return;
       }
 
-      const novoUsuario : Usuario = {name, email, password};
+      const novoUsuario: Usuario = { name, email, password };
       usuarios.push(novoUsuario);
       this.salvarUsuarios(usuarios);
       alert('Cadastro criado com sucesso!');
