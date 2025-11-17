@@ -1,37 +1,37 @@
 <body>
     <div id="imagemAoLado">
-
+        <img id="imagemVeiculoLogin" src="filesLogin/imagemVeiculoLogin.png">
     </div>
     <div class="auth-conteiner">
-        <h2>{{isLoginMode ? 'Login' : 'Cadastro'}}</h2>
+        <div class="logo-top">
+            <img src="logoFord.png" alt="Logo Ford">
+        </div>
+        <div class="form-area">
+            <h2>{{isLoginMode ? 'Login' : 'Cadastro'}}</h2>
 
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div *ngIf="!isLoginMode">
-                <label for="name">Nome :</label>
-                <input id="name" formControlName="name">
-            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div *ngIf="!isLoginMode">
+                    <label for="name">Nome :</label>
+                    <input id="name" formControlName="name">
+                </div>
 
+                <input id="email" placeholder=" Insira seu email" type="email" formControlName="email">
 
+                <input id="password" type="password" formControlName="password"
+                    [placeholder]="isLoginMode ? 'Insira sua senha' : 'Informe pelo menos 6 digitos'">
 
-            <input id="email" placeholder=" Insira seu email" type="email" formControlName="email">
+                <div class="remember-me-container" *ngIf="isLoginMode">
+                    <label for="rememberMe">Logar automaticamente</label>
+                    <input id="rememberMe" type="checkbox" formControlName="rememberMe">
+                </div>
 
+                <button type="submit">{{isLoginMode ? 'Entrar' : 'Cadastrar'}}</button>
+            </form>
 
-            <input id="password" type="password" formControlName="password"
-                [placeholder]="isLoginMode ? 'Insira sua senha' : 'Informe pelo menos 6 digitos'">
-
-            <div class="remember-me-container" *ngIf="isLoginMode">
-                <label for="rememberMe">Logar automaticamente</label>
-                <input id="rememberMe" type="checkbox" formControlName="rememberMe">
-            </div>
-
-
-
-            <button type="submit">{{isLoginMode ? 'Entrar' : 'Cadastrar'}}</button>
-        </form>
-
-        <p>
-            {{isLoginMode ? 'Não possui conta?' : 'Possui conta?'}}
-            <button (click)="toggleMode()">{{isLoginMode ? 'Criar conta' : 'Fazer login'}}</button>
-        </p>
+            <p>
+                {{isLoginMode ? 'Não possui conta?' : 'Possui conta?'}}
+                <button (click)="toggleMode()">{{isLoginMode ? 'Criar conta' : 'Fazer login'}}</button>
+            </p>
+        </div>
     </div>
 </body>

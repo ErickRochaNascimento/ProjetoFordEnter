@@ -14,40 +14,48 @@ body {
   display:flex;
   justify-content:center;
   align-items:center;
-  background-image: url('./imagems/imagemVeiculoLogin.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain; /* ou cover */
 }
 
-#imagemAoLado img {
-    width: 80%;
-    opacity: 0.65;
-    
+#imagemVeiculoLogin {
+    width: 75vh;
+    height: auto;
 }
 
 
 /* ----------- Coluna direita ----------- */
+/* Container geral da parte direita */
 .auth-conteiner {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+    background: #ffffff;
+    padding-top: 20px; /* espaço para o logo */
 }
 
-/* ----------- Logo Ford ----------- */
-.auth-conteiner::before {
-    content: "";
-    background-image: url('./imagems/logoFordLogin.png');
-    background-size: 160px;
-    background-repeat: no-repeat;
-    background-position: center;
+/* LOGO NO TOPO */
+.logo-top {
     width: 100%;
-    height: 120px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20vh; /* espaço entre logo e formulário */
+
 }
+
+.logo-top img {
+    width: 20vh;
+    height: auto;
+}
+
+/* Área do formulário fica centralizada, mas separada */
+.form-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 /* ----------- Título ----------- */
 .auth-conteiner h2 {
