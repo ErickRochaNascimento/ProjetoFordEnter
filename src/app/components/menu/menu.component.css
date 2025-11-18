@@ -14,14 +14,14 @@
 /* ======= LOGO ======= */
 #menu-logo {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   position: relative;
   padding: 10px 0;
 }
 
 #menu-logo-img {
-  width: 90px;
+  width: 9.5vh;
   display: block;
 }
 
@@ -54,7 +54,6 @@
   background: #dcdcdc;
   color: green;               /* texto verde igual na imagem */
   font-weight: bold;
-  border-radius: 4px;
   transition: background .2s;
 }
 
@@ -64,5 +63,10 @@
 
 .menu-active {
   background: #c4c4c4 !important;
-  border-left: 4px solid green;
+  border-left: 2px solid rgb(255, 0, 0);
+}
+
+#menu-close-btn{
+    width: 2.5vh;
+    height: auto;
 }
