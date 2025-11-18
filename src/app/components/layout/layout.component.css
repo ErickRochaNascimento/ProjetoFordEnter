@@ -1,0 +1,9 @@
+.page-content {
+    /* Ajuste para o menu recolhido */
+    margin-left: 60px; 
+    padding: 20px;
+}
+#btnMenu{
+    width: 3vh;
+    height: auto;
+}

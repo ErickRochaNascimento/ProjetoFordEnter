@@ -1,0 +1,15 @@
+<!-- BOTÃO DE ABRIR -->
+<a *ngIf="isMenuCollapsed" (click)="isMenuCollapsed = false">
+  <img id="btnMenu" src="filesMenu/btnMenu.png">
+</a>
+
+<!-- MENU -->
+<app-menu
+  [isCollapsed]="isMenuCollapsed"
+  (changeIsCollapsed)="onMenuToggle($event)"
+></app-menu>
+
+<!-- CONTEÚDO DA PÁGINA -->
+<div class="page-content">
+    <router-outlet></router-outlet>
+</div>

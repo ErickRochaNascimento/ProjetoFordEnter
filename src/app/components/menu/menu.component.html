@@ -1,7 +1,7 @@
-<div id="menu" [ngClass]="isCollapsed() ? 'menu-collapsed' : ''">
+<div id="menu" [ngClass]="isCollapsed ? 'menu-collapsed' : ''">
 
   <!-- LOGO -->
-  <div id="menu-logo" *ngIf="!isCollapsed()">
+  <div id="menu-logo" *ngIf="!isCollapsed">
     <img src="logoFord.png" alt="Ford Logo" id="menu-logo-img">
     <button id="menu-close-btn" (click)="closeMenu()">
       ✖
@@ -9,7 +9,7 @@
   </div>
 
   <!-- LISTA DO MENU -->
-  <ul id="menu-nav" *ngIf="!isCollapsed()">
+  <ul id="menu-nav" *ngIf="!isCollapsed">
     <li class="menu-item" *ngFor="let item of menuItems">
       <a class="menu-link" [routerLink]="item.routeLink" routerLinkActive="menu-active"
         [routerLinkActiveOptions]="{ exact: true }">

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,8 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './menu.component.css',
 })
 export class MenuComponent {
-  isCollapsed = input.required<boolean>();
-  changeIsCollapsed = output<boolean>();
+  @Input({ required: true }) isCollapsed!: boolean;
+  @Output() changeIsCollapsed = new EventEmitter<boolean>();
 
   menuItems = [
     { routeLink: 'home', label: 'Home' },
@@ -19,7 +19,7 @@ export class MenuComponent {
   ];
 
   toggleCollapse(): void {
-    this.changeIsCollapsed.emit(!this.isCollapsed());
+    this.changeIsCollapsed.emit(!this.isCollapsed);
   }
 
   closeMenu(): void {

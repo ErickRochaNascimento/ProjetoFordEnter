@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
-import { MenuComponent } from "../menu/menu.component";
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MenuComponent],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
 
-  isMenuCollapsed: boolean = true;
 
-  onMenuToggle(state: boolean) {
-    this.isMenuCollapsed = state;
-  }
 
 }
