@@ -3,8 +3,8 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: 'auth',
-        loadComponent:()=>
-            import('./components/auth/auth.component').then(m=> m.AuthComponent)
+        loadComponent: () =>
+            import('./components/auth/auth.component').then(m => m.AuthComponent)
     },
     {
         path: '',
@@ -17,13 +17,13 @@ export const routes: Routes = [
         children: [
             {
                 path: 'home',
-                loadComponent:()=>
-                    import('./components/home/home.component').then(m=> m.HomeComponent)
+                loadComponent: () =>
+                    import('./components/home/home.component').then(m => m.HomeComponent)
             },
             {
                 path: 'dashboard',
-                loadComponent:()=>
-                    import('./components/dashboard/dashboard.component').then(m=> m.DashboardComponent)
+                loadComponent: () =>
+                    import('./components/dashboard/dashboard.component').then(m => m.DashboardComponent)
             },
             // Redirecionar a rota vazia do layout para home
             {

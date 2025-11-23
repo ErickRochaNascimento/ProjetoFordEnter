@@ -1,16 +1,20 @@
 /* ======= CONTAINER ======= */
-#menu {
+.menu {
   width: 250px;
   background: #ffffff;           
   min-height: 100vh;
   padding-top: 10px;
   transition: width .3s ease;
+   z-index: 1000; /* sobrepõe o conteúdo */
 }
 
 #menu.menu-collapsed {
   width: 70px;
 }
 
+.menu.open {
+ background-color: aqua;
+}
 /* ======= LOGO ======= */
 #menu-logo {
   display: flex;

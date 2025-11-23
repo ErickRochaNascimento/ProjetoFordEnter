@@ -24,5 +24,6 @@ export class MenuComponent {
 
   closeMenu(): void {
     this.changeIsCollapsed.emit(true);
+    
   }
 }
